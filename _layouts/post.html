@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} - Zeason947 的小站</title>
     <style>
-        /* 基础样式保持一致 */
         html { font-size: 1.1rem; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; color: #222; background: #fff; line-height: 1.8; overflow-x: hidden; }
         .header-wrapper { max-width: 1100px; margin: 30px auto 0; padding: 0 40px; }
@@ -23,13 +22,8 @@
 
         main { flex: 1; max-width: 750px; }
         .post-header h1 { font-size: 2.2rem; font-weight: bold; margin: 0 0 40px 0; line-height: 1.3; }
-
-        /* --- 文章正文样式修复 --- */
-        
-        /* 1. 解决换行间距巨大：调小段落间距 */
         .post-content p { margin: 0 0 1.1rem 0; }
-
-        /* 2. 修复引用块样式 */
+        
         .post-content blockquote {
             margin: 1.5rem 0;
             padding: 10px 20px;
@@ -37,19 +31,15 @@
             border-left: 4px solid #1a73e8;
             color: #555;
         }
-        /* 移除引用块内最后一个段落的边距，防止撑开 */
         .post-content blockquote p:last-child { margin-bottom: 0; }
 
-        /* 3. 列表优化 */
         .post-content ul, .post-content ol { margin-bottom: 1.2rem; padding-left: 1.5rem; }
         .post-content li { margin-bottom: 0.4rem; }
-        /* 解决列表内嵌套段落导致的巨大空行 */
         .post-content li p { margin: 0.2rem 0; }
 
         .post-content h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem 0; border-bottom: 1px solid #eee; padding-bottom: 8px; }
         .post-content strong { color: #000; font-weight: 600; }
         
-        /* 分隔线样式 */
         .post-content hr { border: 0; border-top: 1px solid #eee; margin: 2rem 0; }
 
         @media (max-width: 768px) { 
