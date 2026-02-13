@@ -1,159 +1,177 @@
+---
+layout: default
+---
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>轩仔的个人页面</title>
+    <title>Zeason947 的小站</title>
     <style>
+        /* 整体布局放大 */
+        html {
+            font-size: 1.1rem; 
+        }
+
         body {
-            font-family: "Microsoft YaHei", Arial, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
-            padding: 20px;
-            line-height: 1.6;
+            padding: 0;
+            color: #222;
+            background: #fff;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
+
+        /* 顶部标题区 */
+        .header-wrapper {
+            max-width: 1100px;
+            margin: 30px auto 0; /* 贴近顶部 */
+            padding: 0 40px;
+        }
+
+        .site-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* 贯穿边缘的横线 */
+        .top-line {
+            height: 1px;
+            background-color: #eee;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            margin-left: -50vw;
+        }
+
+        /* 双栏布局容器 */
         .container {
-            max-width: 900px;
-            margin: 0 auto;
+            display: flex;
+            max-width: 1100px;
+            margin: 40px auto; 
+            padding: 0 40px;
+            gap: 100px;
         }
-        .intro-card {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            margin-bottom: 40px;
+
+        /* 左侧信息栏 */
+        aside {
+            flex: 0 0 200px;
         }
-        .intro-card h1 {
-            color: #1a73e8;
-            margin-bottom: 20px;
+
+        .author-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0 0 10px 0;
         }
-        .content-card {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+
+        .bio {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
         }
-        h1, h2 {
-            color: #1a73e8;
-        }
-        h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        ul {
+
+        .social-links {
             list-style: none;
             padding: 0;
+            font-size: 0.95rem;
         }
-        li {
-            background: #f9f9f9;
-            margin: 15px 0;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 5px solid #1a73e8;
+
+        .social-links li {
+            margin-bottom: 10px;
         }
-        a {
-            color: #1a73e8;
+
+        .social-links a {
+            color: #444;
             text-decoration: none;
-            font-weight: bold;
         }
-        a:hover {
+
+        .social-links a:hover {
             text-decoration: underline;
         }
-        .warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            color: #856404;
+
+        /* 右侧内容区 */
+        main {
+            flex: 1;
         }
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #777;
-            font-size: 0.9em;
+
+        .welcome {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+            margin-bottom: 35px;
+        }
+
+        /* 博客条目间隔 */
+        article {
+            margin-bottom: 60px;
+        }
+
+        article h2 {
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+        }
+
+        article h2 a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        article h2 a:hover {
+            color: #0076df;
+        }
+
+        .excerpt {
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .header-wrapper, .container { padding: 0 25px; }
+            .container { flex-direction: column; gap: 40px; margin-top: 30px; }
+            aside { flex: none; width: 100%; }
         }
     </style>
 </head>
 <body>
+
+    <header class="header-wrapper">
+        <span class="site-title">Zeason947 的小站</span>
+        <div class="top-line"></div>
+    </header>
+
     <div class="container">
-        <div class="intro-card">
-            <h1>你好，我是Zeason</h1>
-            <p>来自地球，爱折腾各种玩意儿，研究编程、AI、新技术，也爱鼓捣手机刷机和折腾系统。</p>
-            <p>啥大神都不是，就是个喜欢玩玩的普通人～这里分享一些我常用的刷机资源，希望能帮到同样爱玩机的朋友。</p>
-            <p>玩机有风险，玩机需谨慎！有问题欢迎交流～</p>
-        </div>
-        <div class="content-card">
-            <h1>推荐：靠谱的刷机资源网站</h1>
+        <aside>
+            <h2 class="author-name">Zeason947</h2>
+            <p class="bio">啥都折腾一点的普通人，喜欢上网冲浪。</p>
+            <ul class="social-links">
+                <li><a href="https://github.com/Zeason947" target="_blank">GitHub</a></li>
+                <li><a href="#" target="_blank">Bilibili</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="welcome">👋 欢迎来到 Zeason947 的小站！</div>
             
-            <p>刷机有风险，操作前请务必备份重要数据、解锁Bootloader、阅读完整教程。不同机型步骤不同，弄错可能变砖。我只是整理一些常用资源，不对任何后果负责，自己判断使用。</p>
+            <div class="section-title">文章</div>
 
-            <div class="warning">
-                <strong>重要提醒：</strong><br>
-                1. 刷机会导致保修失效<br>
-                2. 建议在电量充足的情况下使用<br>
-                3. 建议使用官方工具或可信工具（比如Miflash、Odin）<br>
-                4. 新手建议先看机型专区完整教程<br>
-                5. 优先选择官方ROM或知名团队ROM
-            </div>
-
-            <h2>国际上的刷机资源……</h2>
-            <ul>
-                <li>
-                    <strong><a href="https://xdaforums.com/" target="_blank">XDA Developers</a></strong><br>
-                    全球最大的Android开发论坛，几乎所有机型都有专区，ROM、内核、教程、救砖方法应有尽有。
-                </li>
-                <li>
-                    <strong><a href="https://lineageos.org/" target="_blank">LineageOS 官网</a></strong><br>
-                    最稳定、更新最久的自定义ROM系统，支持大量老机型，接近原生Android体验。<br>
-                    尽量选择带gms的刷入，更加舒适~
-                </li>
-                <li>
-                    <strong><a href="https://get.pixelexperience.org/" target="_blank">Pixel Experience</a></strong><br>
-                    谷歌Pixel系统体验移植，界面干净、流畅，相机也接近Pixel效果。<br>
-                    刷入后功能比较完善，老机型可长期使用。<br>
-                    耗电速度可能过快……
-                </li>
-                <li>
-                    <strong><a href="https://sourceforge.net/" target="_blank">SourceForge</a></strong><br>
-                    很多自定义ROM和工具的下载托管地（如TWRP recovery）。<br>
-                </li>
-            </ul>
-
-            <h2>国内常用刷机社区与资源</h2>
-            <ul>
-                <li>
-                    <strong><a href="https://www.coolapk.com/" target="_blank">酷安</a></strong><br>
-                    国内最大的第三方Android应用市场和社区，刷机板块有很多大佬分享ROM包和教程。<br>
-                    值得注意的是，酷安正在大众化，刷机板块人数极少，但仍然有大佬愿意制作、开放下载刷机包。
-                </li>
-                <li>
-                    <strong><a href="https://xiaomi.eu/community/" target="_blank">Xiaomi.eu</a></strong><br>
-                    小米/红米手机的国际多语言ROM，去除广告、解锁更多功能。
-                </li>
-                <li>
-                    <strong><a href="https://xiaomirom.com/" target="_blank">小米历史ROM下载</a></strong><br>
-                    官方ROM稳定版卡刷/线刷包。
-                </li>
-            </ul>
-
-            <h2>常用工具下载</h2>
-            <ul>
-                <li>
-                    <strong><a href="https://twrp.me/" target="_blank">TWRP 官方</a></strong> – 最流行的第三方Recovery。
-                </li>
-                <li>
-                    <strong><a href="https://developer.android.com/tools/releases/platform-tools" target="_blank">Android Platform Tools</a></strong> – 官方ADB和Fastboot工具。
-                </li>
-            </ul>
-
-            <footer>
-                页面由Zeason整理 · 仅供参考 · 玩机有风险，谨慎操作<br>
-                喜欢折腾的朋友可以多去论坛逛逛，大佬超多～
-            </footer>
-        </div>
+            {% for post in site.posts %}
+            <article>
+                <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <p class="excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+            </article>
+            {% endfor %}
+            </main>
     </div>
+
 </body>
 </html>
