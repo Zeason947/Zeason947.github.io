@@ -72,6 +72,8 @@ https://www.123pan.com/s/8eP9-EWvGA.html
 1. 下载适用于救砖的 ColorOS 11 刷机包并解压  
 2. 打开高通工具箱  
 3. 发送引导 → 选择 OPPO → 型号选择 `oppo_870_1`（`oppo_870_2` 也可）  
+<img width="383" height="671" alt="image" src="https://github.com/user-attachments/assets/74166cb5-f0f6-45a1-9ff1-0e7f94dde1d5" />
+
 4. 插入 9008 数据线，手机重启时同时按 音量上 + 音量下 + 电源键  
 
    - 若进入失败，可进入 Recovery → 选择语言 → 多次点击版本号进入 9008  
@@ -83,10 +85,14 @@ https://www.123pan.com/s/8eP9-EWvGA.html
 8. 下载“深度测试”应用  
    https://www.oppo.cn/shop/thread-402624020-1  
 9. 打开深度测试并提交申请  
+<img width="902" height="1080" alt="image" src="https://github.com/user-attachments/assets/2028d029-0157-4875-acc8-322ac2a2092f" />
+
 10. 等待 1 个月  
 11. 满 1 个月后查询审核状态  
     - 若审核通过 → 点击“开始深度测试”  
-    - 手机自动重启进入 Fastboot 模式  
+    - 手机自动重启进入 Fastboot 模式
+<img width="902" height="1080" alt="image" src="https://github.com/user-attachments/assets/22de38ed-8ddf-41ca-bde6-56513631f041" />
+
 12. 进入 Fastboot 后执行：
 
 ```
