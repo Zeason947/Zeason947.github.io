@@ -85,13 +85,15 @@ https://www.123pan.com/s/8eP9-EWvGA.html
 8. 下载“深度测试”应用  
    https://www.oppo.cn/shop/thread-402624020-1  
 9. 打开深度测试并提交申请  
-<img width="902" height="1080" alt="image" src="https://github.com/user-attachments/assets/2028d029-0157-4875-acc8-322ac2a2092f" />
+<img width="498" height="997" alt="58ef05b3e2b21e2843595c0b55fd7f7f" src="https://github.com/user-attachments/assets/69f3200c-d9dc-468a-b84f-d96af3093439" />
+
 
 10. 等待 1 个月  
 11. 满 1 个月后查询审核状态  
     - 若审核通过 → 点击“开始深度测试”  
     - 手机自动重启进入 Fastboot 模式
-<img width="902" height="1080" alt="image" src="https://github.com/user-attachments/assets/22de38ed-8ddf-41ca-bde6-56513631f041" />
+<img width="492" height="984" alt="aa0be117a1f8411863794eae2b16aa1d" src="https://github.com/user-attachments/assets/2827681a-8ddf-44c5-acfa-5ed2eb6976ae" />
+
 
 12. 进入 Fastboot 后执行：
 
