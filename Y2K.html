@@ -7,7 +7,6 @@ layout: default
     <meta charset="UTF-8">
     <title>Welcome to Zeason947's Home Page!</title>
     <style>
-        /* Y2K加强版：星空背景 + 经典灰底叠加 */
         body {
             background: #000 url('https://i.pinimg.com/originals/96/27/81/96278184e7717b5b8dd296f2a67db162.gif') repeat;
             color: #FFFFFF;
@@ -17,7 +16,7 @@ layout: default
         }
 
         a {
-            color: #00FF00; /* 荧光绿链接，更Y2K */
+            color: #00FF00;
             text-decoration: underline;
         }
 
@@ -29,7 +28,6 @@ layout: default
             color: #FFFF00;
         }
 
-        /* 其他保持原凸起边框，但颜色更闪 */
         .header-container {
             border: 4px outset #ff00ff;
             padding: 15px;
@@ -109,13 +107,7 @@ layout: default
 
         <main class="content">
             <div class="marquee-box">
-                <marquee scrollamount="10" behavior="slide"><font color="#FF0000"><blink>WELCOME!!! Updated: {{ "now" | date: "%Y-%m-%d" }} | SITE UNDER CONSTRUCTION!!!</blink></font></marquee>
-            </div>
-
-            <!-- Under Construction大旗 -->
-            <div style="text-align:center; margin-bottom:30px;">
-                <img src="https://st-petersburg.neocities.org/pictures/construction.gif" alt="Under Construction" width="400">
-                <br><font color="#FFFF00" size="7"><blink>SITE UNDER CONSTRUCTION!!!</blink></font>
+                <marquee scrollamount="10" behavior="slide"><font color="#FF0000"><blink>WELCOME!!! Updated: {{ "now" | date: "%Y-%m-%d" }}</blink></font></marquee>
             </div>
 
             <div class="section-header">Latest Articles / 我的文章</div>
