@@ -6,225 +6,225 @@ layout: compress
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeason947's Cyberspace</title>
+    <title>Zeason947 的个人空间</title>
     <style>
-        /* --- Y2K GLOBAL STYLES --- */
+        /* --- Y2K / FRUTIGER AERO 风格变量 --- */
         :root {
-            --bg-color: #000000;
-            --text-color: #00ff41; /* 终端绿 */
-            --accent-color: #ff00ff; /* 赛博粉 */
-            --link-color: #00ffff; /* 青色 */
-            --border-style: 2px solid #00ff41;
+            --glass: rgba(255, 255, 255, 0.7);
+            --aqua-blue: #00ccff;
+            --glossy-gradient: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 50%, #e0e0e0 100%);
+            --btn-gradient: linear-gradient(to bottom, #7abcff 0%, #60abf8 44%, #4096ee 100%);
+            --text-main: #334455;
         }
 
         body {
-            font-family: "Courier New", Courier, monospace; /* 等宽字体是灵魂 */
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            /* 经典的水蓝色背景，带有微妙的圆圈纹理 */
+            background: #e1eec3;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-attachment: fixed;
+            font-family: "Segoe UI", "Tahoma", "Microsoft YaHei", sans-serif;
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 65, .03) 25%, rgba(0, 255, 65, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, .03) 75%, rgba(0, 255, 65, .03) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 255, 65, .03) 25%, rgba(0, 255, 65, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, .03) 75%, rgba(0, 255, 65, .03) 76%, transparent 77%, transparent);
-            background-size: 50px 50px;
+            cursor: url('https://cur.cursors-4u.net/games/gam-4/gam372.cur'), auto;
         }
 
-        a { color: var(--link-color); text-decoration: none; border-bottom: 1px dashed var(--link-color); }
-        a:hover { background-color: var(--link-color); color: #000; text-decoration: none; cursor: crosshair; }
-
-        /* --- LAYOUT --- */
-        .scanline {
-            width: 100%;
-            height: 100px;
-            z-index: 10;
-            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(0,0,0,0) 100%);
-            opacity: 0.1;
-            position: fixed;
-            bottom: 100%;
-            animation: scanline 10s linear infinite;
-            pointer-events: none;
+        /* 顶部闪亮装饰条 */
+        .top-banner {
+            height: 8px;
+            background: linear-gradient(90deg, #ff00de, #00ccff, #73ff00);
+            box-shadow: 0 2px 10px rgba(0,204,255,0.5);
         }
 
-        @keyframes scanline {
-            0% { bottom: 100%; }
-            100% { bottom: -100%; }
-        }
-
-        .header-marquee {
-            background: var(--accent-color);
-            color: #fff;
-            padding: 5px 0;
-            font-weight: bold;
-            border-bottom: var(--border-style);
-        }
-
-        .main-container {
+        .header-wrapper {
             max-width: 1000px;
-            margin: 40px auto;
-            border: var(--border-style);
-            box-shadow: 10px 10px 0px rgba(0, 255, 65, 0.3);
-            display: flex;
-            background: #0a0a0a;
-        }
-
-        /* --- SIDEBAR --- */
-        aside {
-            flex: 0 0 260px;
-            border-right: var(--border-style);
-            padding: 20px;
+            margin: 20px auto;
             text-align: center;
         }
 
-        .avatar-placeholder {
+        .site-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 3px 3px 0px #00ccff, 6px 6px 0px rgba(0,0,0,0.1);
+            text-decoration: none;
+            letter-spacing: -1px;
+            font-style: italic;
+        }
+
+        /* --- 容器 & 磨砂玻璃效果 --- */
+        .container {
+            display: flex;
+            max-width: 1050px;
+            margin: 20px auto 50px;
+            padding: 20px;
+            gap: 30px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        /* --- 侧边栏 --- */
+        aside {
+            flex: 0 0 240px;
+            background: rgba(255,255,255,0.5);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid #fff;
+            text-align: center;
+        }
+
+        .avatar {
             width: 120px;
             height: 120px;
-            background: #000;
-            border: 2px dashed var(--accent-color);
+            background: #fff;
+            border-radius: 50%;
             margin: 0 auto 15px;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 4rem;
         }
 
-        .author-name {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            border-bottom: 2px double var(--text-color);
-            display: inline-block;
-            margin-bottom: 10px;
-        }
+        .author-name { font-size: 1.4rem; color: #0076df; margin-bottom: 5px; }
+        .bio { font-size: 0.9rem; color: #778899; }
 
-        .bio { font-size: 0.9rem; margin-bottom: 30px; }
-
-        .nav-menu { list-style: square; padding-left: 20px; text-align: left; }
-        .nav-menu li { margin-bottom: 10px; }
-        
-        .hit-counter {
-            margin-top: 40px;
-            font-size: 0.8rem;
-            border: 1px solid var(--text-color);
-            padding: 5px;
-            display: inline-block;
-        }
-
-        /* --- CONTENT AREA --- */
-        main { flex: 1; padding: 30px; }
-
-        .welcome-box {
-            border: 1px dotted var(--accent-color);
-            padding: 15px;
-            margin-bottom: 40px;
-            background: rgba(255, 0, 255, 0.05);
-        }
-        
-        .blinking-cursor {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .section-header {
-            background: var(--text-color);
-            color: #000;
-            padding: 5px 10px;
-            font-size: 1.2rem;
+        /* 怀旧按钮样式 */
+        .social-links { list-style: none; padding: 0; margin-top: 20px; }
+        .social-links li { margin-bottom: 12px; }
+        .social-links a {
+            display: block;
+            padding: 8px;
+            background: var(--btn-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
             font-weight: bold;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            box-shadow: 0 4px 0 #2a78c6;
+            transition: all 0.2s;
+        }
+        .social-links a:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #2a78c6; }
+
+        /* --- 主内容区 --- */
+        main { flex: 1; }
+
+        .welcome {
+            background: linear-gradient(to right, #00ccff, #00ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
-        /* --- ARTICLE LIST --- */
-        article {
-            margin-bottom: 40px;
-            border-bottom: 1px dashed #333;
-            padding-bottom: 20px;
+        .section-title {
+            font-size: 1.2rem;
+            color: #fff;
+            background: #444;
+            padding: 5px 15px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 25px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
         }
+
+        /* --- 文章卡片 (iMac G3 糖果色感) --- */
+        article {
+            background: rgba(255,255,255,0.8);
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 8px solid var(--aqua-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        article:hover { transform: scale(1.02); background: #fff; }
 
         article h2 { margin: 0 0 10px 0; font-size: 1.3rem; }
-        
-        article h2 a {
-            color: #fff;
-            border-bottom: none;
-        }
-        article h2 a:hover {
-            color: var(--accent-color);
-            text-shadow: 2px 2px 0px var(--link-color);
-            background: none;
-        }
+        article h2 a { color: #0055aa; text-decoration: none; }
+        article h2 a:hover { text-decoration: underline; }
 
-        .excerpt { color: #aaa; font-size: 0.95rem; margin-top: 10px; }
-        
-        .meta-info {
+        .excerpt { font-size: 1rem; color: #667788; line-height: 1.6; }
+        .post-date {
+            display: inline-block;
+            margin-top: 15px;
             font-size: 0.8rem;
-            color: var(--accent-color);
-            margin-top: 10px;
-            font-family: monospace;
+            color: #99aabb;
+            background: #f0f4f8;
+            padding: 2px 10px;
+            border-radius: 10px;
         }
 
-        /* --- RESPONSIVE --- */
+        /* 怀旧滚动条 */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb {
+            background: var(--aqua-blue);
+            border-radius: 10px;
+            border: 3px solid #f1f1f1;
+        }
+
         @media (max-width: 768px) {
-            .main-container { flex-direction: column; width: 95%; margin: 20px auto; }
-            aside { border-right: none; border-bottom: var(--border-style); }
+            .container { flex-direction: column; margin: 10px; border-radius: 15px; }
+            aside { flex: none; width: auto; }
         }
     </style>
 </head>
 <body>
 
-    <div class="scanline"></div>
+    <div class="top-banner"></div>
 
-    <div class="header-marquee">
-        <marquee scrollamount="6" scrolldelay="100">
-            +++ 欢迎来到 ZEASON947 的网络空间 +++ 系统状态：正常 +++ 最后更新：{% if site.time %}{{ site.time | date: "%Y-%m-%d" }}{% else %}NOW{% endif %} +++
-        </marquee>
-    </div>
+    <header class="header-wrapper">
+        <a href="/" class="site-title">ZEASON947.EXE</a>
+    </header>
 
-    <div class="main-container">
+    <div class="container">
         <aside>
-            <div class="avatar-placeholder">👾</div>
-            <h1 class="author-name">Zeason947</h1>
-            <p class="bio">> 啥都折腾一点的普通人<br>> 喜欢上网冲浪...</p>
+            <div class="avatar">🌐</div>
+            <h2 class="author-name">Zeason947</h2>
+            <p class="bio">欢迎来到我的个人 Web 空间！正在冲浪中...</p>
             
-            <div style="text-align: left; margin-top: 20px;">
-                <strong>[传送门]</strong>
-                <ul class="nav-menu">
-                    <li><a href="/" style="color:#fff;">:: 首页 ::</a></li>
-                    <li><a href="https://github.com/Zeason947" target="_blank">GitHub</a></li>
-                    <li><a href="https://space.bilibili.com/3546379144137503" target="_blank">Bilibili</a></li>
-                </ul>
-            </div>
+            <ul class="social-links">
+                <li><a href="https://github.com/Zeason947" target="_blank">MY GITHUB</a></li>
+                <li><a href="https://space.bilibili.com/3546379144137503" target="_blank">BILIBILI TV</a></li>
+            </ul>
 
-            <div class="hit-counter">
-                VISITORS: 00947
+            <div style="margin-top:30px">
+                <img src="https://web.archive.org/web/20090830045435/http://geocities.com/Athens/Acropolis/2097/netscape.gif" alt="Netscape" style="width: 80px; opacity:0.8">
             </div>
-            <br><br>
-            <small style="color: #666;">Best viewed in<br>Netscape Navigator</small>
         </aside>
 
         <main>
-            <div class="welcome-box">
-                <span style="color: var(--accent-color);">root@zeason947:~$</span> cat welcome.txt<br>
-                👋 欢迎来到 Zeason947 的小站！<span class="blinking-cursor">_</span>
+            <div class="welcome">Hello World! Welcome to My Homepage :)</div>
+            
+            <div class="section-title">我的日志 / My Posts</div>
+
+            <div class="post-list">
+                {% for post in site.posts %}
+                <article>
+                    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                    <p class="excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
+                    <div class="post-date">DATE: {{ post.date | date: "%Y-%m-%d" }}</div>
+                </article>
+                {% endfor %}
             </div>
 
-            <div class="section-header">/// 文章列表_DATA</div>
-
-            {% for post in site.posts %}
-            <article>
-                <div class="meta-info">[{{ post.date | date: "%Y-%m-%d" }}]</div>
-                <h2><a href="{{ post.url }}">>> {{ post.title }}</a></h2>
-                <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-            </article>
-            {% endfor %}
-            
             {% if site.posts.size == 0 %}
-            <div style="text-align:center; padding: 40px;">
-                <p>No Data Found...</p>
-                <img src="https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif" alt="Under Construction" style="width:50px; opacity:0.7;">
+            <div style="text-align: center; padding: 50px; color: #999;">
+                <p>(目前还没有文章哦...)</p>
             </div>
             {% endif %}
-
         </main>
     </div>
+
+    <footer style="text-align: center; padding-bottom: 40px; color: #778899; font-size: 0.8rem;">
+        &copy; 2004-2026 Zeason947 | Optimized for IE 6.0
+    </footer>
 
 </body>
 </html>
