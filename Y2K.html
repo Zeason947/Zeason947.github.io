@@ -1,0 +1,150 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☆ Zeason947 的个人空间 ☆</title>
+    <style>
+        :root {
+            --bg-color: #008080;
+            --window-bg: #c0c0c0;
+            --border-light: #ffffff;
+            --border-dark: #808080;
+            --link-color: #0000ee;
+            --link-visited: #551a8b;
+        }
+
+        body { 
+            background-color: var(--bg-color); 
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* 微弱的纹理 */
+            font-family: "MS Sans Serif", "Courier New", monospace; 
+            margin: 0; 
+            padding: 20px;
+            color: #000;
+        }
+
+        .window {
+            background: var(--window-bg);
+            border: 2px solid;
+            border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .title-bar {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            color: white;
+            padding: 3px 10px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content-area {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+        }
+
+        aside {
+            border: 2px inset var(--border-light);
+            background: #eee;
+            padding: 15px;
+        }
+
+        .marquee-box {
+            background: #000;
+            color: #0f0;
+            padding: 5px;
+            font-family: monospace;
+            margin-bottom: 20px;
+        }
+
+        article {
+            background: #fff;
+            border: 1px solid #808080;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        article h2 {
+            font-size: 1.2rem;
+            margin: 0;
+            background: #e0e0e0;
+            padding: 5px;
+            border-bottom: 1px dashed #666;
+        }
+
+        .excerpt { font-size: 0.9rem; margin: 10px 0; }
+        .post-date { color: #666; font-size: 0.8rem; text-align: right; }
+
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+        .blink { animation: blink 1s infinite; color: red; font-weight: bold; }
+
+        a { color: var(--link-color); font-weight: bold; }
+        a:visited { color: var(--link-visited); }
+
+        @media (max-width: 768px) {
+            .content-area { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="window">
+        <div class="title-bar">
+            <span>Microsoft Internet Explorer - [Zeason947_Home]</span>
+            <span style="font-size: 12px;">[ ? X ]</span>
+        </div>
+
+        <div class="marquee-box">
+            <marquee>欢迎来到我的个人主页！请留言！目前的访客是：第 00947 位...</marquee>
+        </div>
+
+        <div class="content-area">
+            <aside>
+                <center>
+                    <img src="https://via.placeholder.com/100" style="border: 2px solid #000;" alt="Avatar">
+                    <h3 style="margin-top:10px;">Zeason947</h3>
+                </center>
+                <p style="font-size: 12px;">个性签名：折腾不止，冲浪不停！<span class="blink">NEW!</span></p>
+                
+                <hr>
+                <p>友情链接</p>
+                <ul style="padding-left: 20px; font-size: 13px;">
+                    <li><a href="https://github.com/Zeason947">My GitHub</a></li>
+                    <li><a href="https://space.bilibili.com/3546379144137503">My Bilibili</a></li>
+                </ul>
+                <center>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=Hello" alt="QR" width="80">
+                </center>
+            </aside>
+
+            <main>
+                <h1 style="text-shadow: 2px 2px #ccc;">My Blog Posts</h1>
+                <hr size="3" noshade>
+
+                {% for post in site.posts %}
+                <article>
+                    <h2><a href="{{ post.url }}">⚓ {{ post.title }}</a></h2>
+                    <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+                    <div class="post-date">发布于: {{ post.date | date: "%Y/%m/%d" }}</div>
+                </article>
+                {% endfor %}
+                
+                <footer style="text-align: center; font-size: 12px; margin-top: 50px;">
+                    <p>Best viewed in 800x600 resolution</p>
+                    <p>Made with ❤️ and FrontPage 2000</p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
