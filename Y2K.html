@@ -80,6 +80,10 @@ layout: default
 </head>
 <body>
 
+    <!-- Y2K背景音乐（现代浏览器基本屏蔽autoplay，留着情怀） -->
+    <!-- <bgsound src="https://example.com/your-favorite-midi.mid" loop="infinite"> -->
+    <!-- <embed src="https://example.com/your-favorite-midi.mid" autostart=true loop=true hidden=true> -->
+
     <header class="header-container">
         <div class="site-title"><blink>ZEASON947'S PERSONAL HOME PAGE</blink></div>
         <marquee behavior="alternate" scrollamount="8"><font color="#FFFF00" size="6">★★★ WELCOME TO THE NEW MILLENNIUM ★★★</font></marquee>
@@ -103,12 +107,23 @@ layout: default
                 <li><a href="https://github.com/Zeason947">My GitHub</a></li>
                 <li><a href="#">Bilibili Space</a></li>
             </ul>
+
+            <!-- 新增：复古分隔线 + Guestbook -->
+            <hr color="#00FFFF" size="3">
+            <div style="text-align:center; color:#FF00FF; margin:10px 0;"><blink>Guestbook</blink></div>
+            <ul style="padding-left:20px;">
+                <li><a href="#">Sign My Guestbook!!!</a></li>
+                <li><a href="#">View My Guestbook!!!</a></li>
+            </ul>
         </aside>
 
         <main class="content">
             <div class="marquee-box">
                 <marquee scrollamount="10" behavior="slide"><font color="#FF0000"><blink>WELCOME!!! Updated: {{ "now" | date: "%Y-%m-%d" }}</blink></font></marquee>
             </div>
+
+            <!-- 新增：复古分隔线 -->
+            <hr color="#FF00FF" size="4" width="80%" align="center">
 
             <div class="section-header">Latest Articles / 我的文章</div>
 
@@ -135,7 +150,7 @@ layout: default
 
     <footer>
         <p><font color="#00FF00">Copyright © 2000-2026 Zeason947 Studio. All Rights Reserved.</font></p>
-        <marquee direction="right" scrollamount="6"><font color="#FF00FF">Thanks for visiting!!! Come back soon!!!</font></marquee>
+        <marquee direction="right" scrollamount="6"><font color="#FF00FF">Thanks for visiting!!! Come back soon!!! Welcome again~~~</font></marquee>
     </footer>
 
 </body>
