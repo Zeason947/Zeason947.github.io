@@ -5,146 +5,201 @@ layout: compress
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>☆ Zeason947 的个人空间 ☆</title>
+    <title>欢迎光临 Zeason947 的网络小屋</title>
     <style>
-        :root {
-            --bg-color: #008080;
-            --window-bg: #c0c0c0;
-            --border-light: #ffffff;
-            --border-dark: #808080;
-            --link-color: #0000ee;
-            --link-visited: #551a8b;
-        }
+        /* 强制使用宋体，寻找那种老旧报纸和早期网页的生硬感 */
+        * { font-family: "SimSun", "STSong", "serif"; }
 
         body { 
-            background-color: var(--bg-color); 
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* 微弱的纹理 */
-            font-family: "MS Sans Serif", "Courier New", monospace; 
-            margin: 0; 
+            background-color: #008080; /* 经典的桌面绿蓝 */
+            /* 使用 base64 注入一个经典的微小点状纹理，让背景不再“洁净” */
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36zwjjgzhhGPABPCCDEYQBCVaoGQC6fT/9U4iuQAAAAABJRU5ErkJggg==");
+            margin: 0;
             padding: 20px;
-            color: #000;
         }
 
-        .window {
-            background: var(--window-bg);
+        /* 典型的 Win95 按钮/窗口边框效果 */
+        .win-border {
             border: 2px solid;
-            border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            max-width: 900px;
+            border-color: #fff #808080 #808080 #fff;
+            background: #c0c0c0;
+            padding: 2px;
+        }
+
+        .inset-border {
+            border: 2px solid;
+            border-color: #808080 #fff #fff #808080;
+            background: #fff;
+            padding: 10px;
+        }
+
+        /* 标题栏：深蓝色渐变 */
+        .title-bar {
+            background: #000080;
+            color: white;
+            padding: 3px 6px;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 850px;
             margin: 0 auto;
         }
 
-        .title-bar {
-            background: linear-gradient(90deg, #000080, #1084d0);
-            color: white;
-            padding: 3px 10px;
+        /* 顶部装饰 */
+        .header-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .main-layout {
+            display: table; /* 使用 table 布局比 flex 更具年代感 */
+            width: 100%;
+        }
+
+        .sidebar {
+            display: table-cell;
+            width: 180px;
+            vertical-align: top;
+            padding-right: 15px;
+        }
+
+        .content {
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        /* 链接样式：回归最原始的蓝与紫 */
+        a { color: #0000FF; text-decoration: underline; }
+        a:visited { color: #800080; }
+        a:hover { color: #FF0000; }
+
+        /* 文章块 */
+        .post-card {
+            margin-bottom: 25px;
+        }
+
+        .post-title {
+            font-size: 18px;
             font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            color: #000080;
+            margin: 0 0 5px 0;
+            display: block;
         }
 
-        .content-area {
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 20px;
+        .post-meta {
+            font-size: 12px;
+            color: #444;
+            margin-bottom: 8px;
         }
 
-        aside {
-            border: 2px inset var(--border-light);
-            background: #eee;
-            padding: 15px;
+        .post-excerpt {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #000;
         }
 
-        .marquee-box {
+        /* 装饰元素 */
+        .marquee-container {
             background: #000;
             color: #0f0;
-            padding: 5px;
-            font-family: monospace;
-            margin-bottom: 20px;
+            border: 2px inset #fff;
+            margin: 10px 0;
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        article {
-            background: #fff;
+        .counter {
+            background: #000;
+            color: #f00;
+            padding: 2px 5px;
+            font-family: "Courier New";
             border: 1px solid #808080;
-            padding: 15px;
-            margin-bottom: 20px;
         }
 
-        article h2 {
-            font-size: 1.2rem;
-            margin: 0;
-            background: #e0e0e0;
-            padding: 5px;
-            border-bottom: 1px dashed #666;
-        }
-
-        .excerpt { font-size: 0.9rem; margin: 10px 0; }
-        .post-date { color: #666; font-size: 0.8rem; text-align: right; }
-
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
-        .blink { animation: blink 1s infinite; color: red; font-weight: bold; }
-
-        a { color: var(--link-color); font-weight: bold; }
-        a:visited { color: var(--link-visited); }
-
-        @media (max-width: 768px) {
-            .content-area { grid-template-columns: 1fr; }
+        h2.section-head {
+            background: #c0c0c0;
+            border-bottom: 2px solid #808080;
+            font-size: 16px;
+            padding: 2px 5px;
+            margin-top: 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="window">
+<div class="container">
+    <div class="win-border">
         <div class="title-bar">
-            <span>Microsoft Internet Explorer - [Zeason947_Home]</span>
-            <span style="font-size: 12px;">[ ? X ]</span>
+            <span>C:\WINDOWS\Desktop\Zeason947_Space.exe</span>
+            <span>[ ? X ]</span>
         </div>
+        
+        <div style="padding: 15px;">
+            <div class="header-section">
+                <h1 style="color: #000080; filter: drop-shadow(2px 2px #808080); font-size: 32px;">
+                    Welcome to Zeason947's Home Page
+                </h1>
+                <div class="marquee-container">
+                    <marquee scrollamount="3">>>> 欢迎光临本站！当前时间：2026年2月16日... 祝你在互联网的海洋里冲浪愉快！ <<<</marquee>
+                </div>
+            </div>
 
-        <div class="marquee-box">
-            <marquee>欢迎来到我的个人主页！请留言！目前的访客是：第 00947 位...</marquee>
-        </div>
+            <div class="main-layout">
+                <div class="sidebar">
+                    <div class="win-border" style="margin-bottom: 10px;">
+                        <h2 class="section-head">站长档案</h2>
+                        <div style="padding: 5px; text-align: center;">
+                            <img src="https://via.placeholder.com/80" border="2">
+                            <p style="font-size: 12px; font-weight: bold;">Zeason947</p>
+                            <p style="font-size: 12px; text-align: left;">
+                                啥都折腾一点的普通人。<br>
+                                访客数：<span class="counter">00947</span>
+                            </p>
+                        </div>
+                    </div>
 
-        <div class="content-area">
-            <aside>
-                <center>
-                    <img src="https://via.placeholder.com/100" style="border: 2px solid #000;" alt="Avatar">
-                    <h3 style="margin-top:10px;">Zeason947</h3>
-                </center>
-                <p style="font-size: 12px;">个性签名：折腾不止，冲浪不停！<span class="blink">NEW!</span></p>
-                
-                <hr>
-                <p>友情链接</p>
-                <ul style="padding-left: 20px; font-size: 13px;">
-                    <li><a href="https://github.com/Zeason947">My GitHub</a></li>
-                    <li><a href="https://space.bilibili.com/3546379144137503">My Bilibili</a></li>
-                </ul>
-                <center>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=Hello" alt="QR" width="80">
-                </center>
-            </aside>
+                    <div class="win-border">
+                        <h2 class="section-head">我的链接</h2>
+                        <div style="padding: 8px; font-size: 13px;">
+                            · <a href="https://github.com/Zeason947">GitHub主页</a><br>
+                            · <a href="https://space.bilibili.com/3546379144137503">B站频道</a>
+                        </div>
+                    </div>
+                </div>
 
-            <main>
-                <h1 style="text-shadow: 2px 2px #ccc;">My Blog Posts</h1>
-                <hr size="3" noshade>
+                <div class="content">
+                    <div class="inset-border">
+                        <h2 style="font-size: 20px; margin-top: 0; border-bottom: 2px double #000;">最新博文 / Latest Posts</h2>
+                        
+                        {% for post in site.posts %}
+                        <div class="post-card">
+                            <a href="{{ post.url }}" class="post-title">📂 {{ post.title }}</a>
+                            <div class="post-meta">[发布日期: {{ post.date | date: "%Y-%m-%d" }}] [分类: Blog]</div>
+                            <div class="post-excerpt">
+                                {{ post.excerpt | strip_html | truncate: 120 }}
+                                <a href="{{ post.url }}">[阅读全文...]</a>
+                            </div>
+                            <hr style="border: 0; border-top: 1px dotted #808080; margin-top: 15px;">
+                        </div>
+                        {% endfor %}
 
-                {% for post in site.posts %}
-                <article>
-                    <h2><a href="{{ post.url }}">⚓ {{ post.title }}</a></h2>
-                    <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-                    <div class="post-date">发布于: {{ post.date | date: "%Y/%m/%d" }}</div>
-                </article>
-                {% endfor %}
-                
-                <footer style="text-align: center; font-size: 12px; margin-top: 50px;">
-                    <p>Best viewed in 800x600 resolution</p>
-                    <p>Made with ❤️ and FrontPage 2000</p>
-                </footer>
-            </main>
+                        <div style="text-align: center; margin-top: 30px;">
+                            <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01" height="31">
+                            <img src="https://www.w3.org/Icons/valid-css" alt="Valid CSS" height="31">
+                            <p style="font-size: 11px; color: #666;">
+                                本站推荐使用 IE 6.0 1024x768 分辨率浏览
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
 </body>
 </html>
