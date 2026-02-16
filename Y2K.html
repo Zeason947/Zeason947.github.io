@@ -1,229 +1,149 @@
 ---
-layout: compress
+layout: default
 ---
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeason947 的个人空间</title>
+    <title>Welcome to Zeason947's Home Page!</title>
     <style>
-        /* --- Y2K / FRUTIGER AERO 风格变量 --- */
-        :root {
-            --glass: rgba(255, 255, 255, 0.7);
-            --aqua-blue: #00ccff;
-            --glossy-gradient: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 50%, #e0e0e0 100%);
-            --btn-gradient: linear-gradient(to bottom, #7abcff 0%, #60abf8 44%, #4096ee 100%);
-            --text-main: #334455;
-        }
-
+        /* Y2K加强版：星空背景 + 经典灰底叠加 */
         body {
-            /* 经典的水蓝色背景，带有微妙的圆圈纹理 */
-            background: #e1eec3;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            background-attachment: fixed;
-            font-family: "Segoe UI", "Tahoma", "Microsoft YaHei", sans-serif;
-            color: var(--text-main);
+            background: #000 url('https://i.pinimg.com/originals/96/27/81/96278184e7717b5b8dd296f2a67db162.gif') repeat;
+            color: #FFFFFF;
+            font-family: "Comic Sans MS", "Times New Roman", "SimSun", cursive;
             margin: 0;
-            padding: 0;
-            cursor: url('https://cur.cursors-4u.net/games/gam-4/gam372.cur'), auto;
+            padding: 20px;
         }
 
-        /* 顶部闪亮装饰条 */
-        .top-banner {
-            height: 8px;
-            background: linear-gradient(90deg, #ff00de, #00ccff, #73ff00);
-            box-shadow: 0 2px 10px rgba(0,204,255,0.5);
+        a {
+            color: #00FF00; /* 荧光绿链接，更Y2K */
+            text-decoration: underline;
         }
 
-        .header-wrapper {
-            max-width: 1000px;
-            margin: 20px auto;
+        a:visited {
+            color: #FF00FF;
+        }
+
+        a:hover {
+            color: #FFFF00;
+        }
+
+        /* 其他保持原凸起边框，但颜色更闪 */
+        .header-container {
+            border: 4px outset #ff00ff;
+            padding: 15px;
+            background-color: #000080;
+            color: #ffffff;
+            margin-bottom: 20px;
             text-align: center;
         }
 
         .site-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: #fff;
-            text-shadow: 3px 3px 0px #00ccff, 6px 6px 0px rgba(0,0,0,0.1);
-            text-decoration: none;
-            letter-spacing: -1px;
-            font-style: italic;
-        }
-
-        /* --- 容器 & 磨砂玻璃效果 --- */
-        .container {
-            display: flex;
-            max-width: 1050px;
-            margin: 20px auto 50px;
-            padding: 20px;
-            gap: 30px;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.8);
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-        }
-
-        /* --- 侧边栏 --- */
-        aside {
-            flex: 0 0 240px;
-            background: rgba(255,255,255,0.5);
-            padding: 20px;
-            border-radius: 20px;
-            border: 1px solid #fff;
-            text-align: center;
-        }
-
-        .avatar {
-            width: 120px;
-            height: 120px;
-            background: #fff;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            border: 5px solid #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        .author-name { font-size: 1.4rem; color: #0076df; margin-bottom: 5px; }
-        .bio { font-size: 0.9rem; color: #778899; }
-
-        /* 怀旧按钮样式 */
-        .social-links { list-style: none; padding: 0; margin-top: 20px; }
-        .social-links li { margin-bottom: 12px; }
-        .social-links a {
-            display: block;
-            padding: 8px;
-            background: var(--btn-gradient);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 30pt;
             font-weight: bold;
-            box-shadow: 0 4px 0 #2a78c6;
-            transition: all 0.2s;
-        }
-        .social-links a:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #2a78c6; }
-
-        /* --- 主内容区 --- */
-        main { flex: 1; }
-
-        .welcome {
-            background: linear-gradient(to right, #00ccff, #00ffcc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 20px;
+            letter-spacing: 4px;
+            text-shadow: 3px 3px #ff00ff, -3px -3px #00ffff;
         }
 
-        .section-title {
-            font-size: 1.2rem;
-            color: #fff;
-            background: #444;
-            padding: 5px 15px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 25px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        .sidebar, .content {
+            border: 3px inset #00ffff;
+            background-color: rgba(0, 0, 50, 0.7);
         }
 
-        /* --- 文章卡片 (iMac G3 糖果色感) --- */
-        article {
-            background: rgba(255,255,255,0.8);
-            margin-bottom: 25px;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 8px solid var(--aqua-blue);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        article:hover { transform: scale(1.02); background: #fff; }
-
-        article h2 { margin: 0 0 10px 0; font-size: 1.3rem; }
-        article h2 a { color: #0055aa; text-decoration: none; }
-        article h2 a:hover { text-decoration: underline; }
-
-        .excerpt { font-size: 1rem; color: #667788; line-height: 1.6; }
-        .post-date {
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 0.8rem;
-            color: #99aabb;
-            background: #f0f4f8;
-            padding: 2px 10px;
-            border-radius: 10px;
+        .main-layout {
+            display: table;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 15px;
         }
 
-        /* 怀旧滚动条 */
-        ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb {
-            background: var(--aqua-blue);
-            border-radius: 10px;
-            border: 3px solid #f1f1f1;
+        .sidebar {
+            display: table-cell;
+            width: 200px;
+            vertical-align: top;
+            padding: 15px;
+        }
+
+        .content {
+            display: table-cell;
+            vertical-align: top;
+            padding: 25px;
         }
 
         @media (max-width: 768px) {
-            .container { flex-direction: column; margin: 10px; border-radius: 15px; }
-            aside { flex: none; width: auto; }
+            .main-layout, .sidebar, .content {
+                display: block;
+                width: auto;
+            }
+            .sidebar { margin-bottom: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-banner"></div>
-
-    <header class="header-wrapper">
-        <a href="/" class="site-title">ZEASON947.EXE</a>
+    <header class="header-container">
+        <div class="site-title"><blink>ZEASON947'S PERSONAL HOME PAGE</blink></div>
+        <marquee behavior="alternate" scrollamount="8"><font color="#FFFF00" size="6">★★★ WELCOME TO THE NEW MILLENNIUM ★★★</font></marquee>
     </header>
 
-    <div class="container">
-        <aside>
-            <div class="avatar">🌐</div>
-            <h2 class="author-name">Zeason947</h2>
-            <p class="bio">欢迎来到我的个人 Web 空间！正在冲浪中...</p>
+    <div class="main-layout">
+        <aside class="sidebar">
+            <div style="text-align:center; font-weight:bold; text-decoration:underline; margin-bottom:10px; color:#00FFFF;">
+                <blink>User Profile</blink>
+            </div>
+            <div class="author-photo">
+                <p style="text-align:center; margin:0; font-size:12px;">[ Image Placeholder ]</p>
+            </div>
+            <strong>Name:</strong> <font color="#00FF00">Zeason947</font><br>
+            <strong>Status:</strong> <font color="#FF00FF">Online!!!</font><br>
+            <p style="font-size: 13px; margin-top:10px; border-top:1px solid #00FFFF; padding-top:5px; color:#FFFFFF;">
+                啥都折腾一点的普通人，喜欢上网冲浪~
+            </p>
             
             <ul class="social-links">
-                <li><a href="https://github.com/Zeason947" target="_blank">MY GITHUB</a></li>
-                <li><a href="https://space.bilibili.com/3546379144137503" target="_blank">BILIBILI TV</a></li>
+                <li><a href="https://github.com/Zeason947">My GitHub</a></li>
+                <li><a href="#">Bilibili Space</a></li>
             </ul>
-
-            <div style="margin-top:30px">
-                <img src="https://web.archive.org/web/20090830045435/http://geocities.com/Athens/Acropolis/2097/netscape.gif" alt="Netscape" style="width: 80px; opacity:0.8">
-            </div>
         </aside>
 
-        <main>
-            <div class="welcome">Hello World! Welcome to My Homepage :)</div>
-            
-            <div class="section-title">我的日志 / My Posts</div>
-
-            <div class="post-list">
-                {% for post in site.posts %}
-                <article>
-                    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-                    <p class="excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
-                    <div class="post-date">DATE: {{ post.date | date: "%Y-%m-%d" }}</div>
-                </article>
-                {% endfor %}
+        <main class="content">
+            <div class="marquee-box">
+                <marquee scrollamount="10" behavior="slide"><font color="#FF0000"><blink>WELCOME!!! Updated: {{ "now" | date: "%Y-%m-%d" }} | SITE UNDER CONSTRUCTION!!!</blink></font></marquee>
             </div>
 
-            {% if site.posts.size == 0 %}
-            <div style="text-align: center; padding: 50px; color: #999;">
-                <p>(目前还没有文章哦...)</p>
+            <!-- Under Construction大旗 -->
+            <div style="text-align:center; margin-bottom:30px;">
+                <img src="https://st-petersburg.neocities.org/pictures/construction.gif" alt="Under Construction" width="400">
+                <br><font color="#FFFF00" size="7"><blink>SITE UNDER CONSTRUCTION!!!</blink></font>
             </div>
-            {% endif %}
+
+            <div class="section-header">Latest Articles / 我的文章</div>
+
+            {% for post in site.posts %}
+            <article>
+                <h2 class="post-title">
+                    <img src="https://img.icons8.com/color/20/000000/opened-folder.png" style="vertical-align: middle;"/> 
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h2>
+                <div class="post-excerpt">
+                    {{ post.excerpt | strip_html | truncate: 120 }}
+                </div>
+            </article>
+            {% endfor %}
+
+            <div style="text-align: center; margin-top: 50px;">
+                <img src="https://img.icons8.com/color/48/000000/internet-explorer.png" alt="Best viewed in IE 6.0">
+                <br>
+                <font size="4" color="#00FFFF">Best viewed in IE 6.0 @ 800x600</font>
+                <br><span style="font-size: 10px; color:#FFFFFF;">Optimized for the new millennium ~ Y2K compliant!</span>
+            </div>
         </main>
     </div>
 
-    <footer style="text-align: center; padding-bottom: 40px; color: #778899; font-size: 0.8rem;">
-        &copy; 2004-2026 Zeason947 | Optimized for IE 6.0
+    <footer>
+        <p><font color="#00FF00">Copyright © 2000-2026 Zeason947 Studio. All Rights Reserved.</font></p>
+        <marquee direction="right" scrollamount="6"><font color="#FF00FF">Thanks for visiting!!! Come back soon!!!</font></marquee>
     </footer>
 
 </body>
