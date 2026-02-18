@@ -69,6 +69,44 @@ layout: default
             padding: 25px;
         }
 
+        .post {
+            margin-bottom: 30px;
+            border-bottom: 2px dashed #00ffff;
+            padding-bottom: 15px;
+        }
+
+        .post-title {
+            color: #ffff00;
+            text-shadow: 1px 1px #ff00ff;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .sparkle {
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+        }
+
+        .under-construction {
+            display: block;
+            margin: 20px auto;
+            width: 150px;
+        }
+
+        hr.rainbow {
+            border: 0;
+            height: 4px;
+            background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+            margin: 20px 0;
+        }
+
         @media (max-width: 768px) {
             .main-layout, .sidebar, .content {
                 display: block;
@@ -80,13 +118,9 @@ layout: default
 </head>
 <body>
 
-    <!-- Y2K背景音乐（现代浏览器基本屏蔽autoplay，留着情怀） -->
-    <!-- <bgsound src="https://example.com/your-favorite-midi.mid" loop="infinite"> -->
-    <!-- <embed src="https://example.com/your-favorite-midi.mid" autostart=true loop=true hidden=true> -->
-
     <header class="header-container">
         <div class="site-title"><blink>ZEASON947'S PERSONAL HOME PAGE</blink></div>
-        <marquee behavior="alternate" scrollamount="8"><font color="#FFFF00" size="6">★★★ WELCOME TO THE NEW MILLENNIUM ★★★</font></marquee>
+        <marquee behavior="alternate" scrollamount="8"><font color="#FFFF00" size="6">★★★ WELCOME TO THE NEW MILLENNIUM ★★★ <img src="https://media.giphy.com/media/3o7TKsQ8J2y5kQJq4I/giphy.gif" class="sparkle" alt="sparkle"></font></marquee>
     </header>
 
     <div class="main-layout">
@@ -100,7 +134,7 @@ layout: default
             <strong>Name:</strong> <font color="#00FF00">Zeason947</font><br>
             <strong>Status:</strong> <font color="#FF00FF">Online!!!</font><br>
             <p style="font-size: 13px; margin-top:10px; border-top:1px solid #00FFFF; padding-top:5px; color:#FFFFFF;">
-                啥都折腾一点的普通人，喜欢上网冲浪~
+                啥都折腾一点的普通人，喜欢上网冲浪~ <img src="https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif" class="sparkle" alt="star">
             </p>
             
             <ul class="social-links">
@@ -108,49 +142,55 @@ layout: default
                 <li><a href="#">Bilibili Space</a></li>
             </ul>
 
-            <!-- 新增：复古分隔线 + Guestbook -->
             <hr color="#00FFFF" size="3">
             <div style="text-align:center; color:#FF00FF; margin:10px 0;"><blink>Guestbook</blink></div>
             <ul style="padding-left:20px;">
                 <li><a href="#">Sign My Guestbook!!!</a></li>
                 <li><a href="#">View My Guestbook!!!</a></li>
             </ul>
+
+            <!-- 小装饰：透明闪烁星星 -->
+            <img src="https://media.giphy.com/media/3o7TKtd3XavoI3xW4E/giphy.gif" alt="blinking star" style="width:40px; display:block; margin:10px auto;">
         </aside>
 
         <main class="content">
             <div class="marquee-box">
-                <marquee scrollamount="10" behavior="slide"><font color="#FF0000"><blink>WELCOME!!! Updated: {{ "now" | date: "%Y-%m-%d" }}</blink></font></marquee>
+                <marquee scrollamount="10" behavior="slide"><font color="#FF0000"><blink>WELCOME!!! Updated: {{ "now" | date: "%Y-%m-%d" }} <img src="https://media.giphy.com/media/xT9IgzoW5oH3JqQ2Zy/giphy.gif" class="sparkle" alt="sparkle"></blink></font></marquee>
             </div>
 
-            <!-- 新增：复古分隔线 -->
-            <hr color="#FF00FF" size="4" width="80%" align="center">
+            <hr class="rainbow">
 
-            <div class="section-header">Latest Articles / 我的文章</div>
+            <div class="section-header"><blink>Latest Articles / 我的文章</blink> <img src="https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif" class="sparkle" alt="new"></div>
 
             {% for post in site.posts %}
-            <article>
+            <article class="post">
                 <h2 class="post-title">
                     <img src="https://img.icons8.com/color/20/000000/opened-folder.png" style="vertical-align: middle;"/> 
                     <a href="{{ post.url }}">{{ post.title }}</a>
+                    <blink style="color:#ff00ff; font-size:14px;"> NEW!</blink>
                 </h2>
                 <div class="post-excerpt">
                     {{ post.excerpt | strip_html | truncate: 120 }}
                 </div>
+                <hr color="#FF00FF" size="2" width="60%">
             </article>
             {% endfor %}
+
+            <!-- 经典Under Construction GIF（透明背景例子，可换成gifcities搜的） -->
+            <img src="https://i.imgur.com/8SEMMFUh.jpg" alt="Under Construction" class="under-construction">  <!-- 这个是例子，建议换成透明的如 https://gifcities.org 中的under construction -->
 
             <div style="text-align: center; margin-top: 50px;">
                 <img src="https://img.icons8.com/color/48/000000/internet-explorer.png" alt="Best viewed in IE 6.0">
                 <br>
                 <font size="4" color="#00FFFF">Best viewed in IE 6.0 @ 800x600</font>
-                <br><span style="font-size: 10px; color:#FFFFFF;">Optimized for the new millennium ~ Y2K compliant!</span>
+                <br><span style="font-size: 10px; color:#FFFFFF;">Optimized for the new millennium ~ Y2K compliant! <blink>!!!</blink></span>
             </div>
         </main>
     </div>
 
     <footer>
         <p><font color="#00FF00">Copyright © 2000-2026 Zeason947 Studio. All Rights Reserved.</font></p>
-        <marquee direction="right" scrollamount="6"><font color="#FF00FF">Thanks for visiting!!! Come back soon!!! Welcome again~~~</font></marquee>
+        <marquee direction="right" scrollamount="6"><font color="#FF00FF">Thanks for visiting!!! Come back soon!!! Welcome again~~~ <img src="https://media.giphy.com/media/3o7abldj0b3r8x5xII/giphy.gif" class="sparkle" alt="star"></font></marquee>
     </footer>
 
 </body>
