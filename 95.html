@@ -1,0 +1,220 @@
+---
+layout: compress
+---
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ZEASON947 网络日志存档</title>
+
+<style>
+body {
+    background-color: #C0C0C0;
+    color: #000000;
+    font-family: "Times New Roman", "SimSun", serif;
+    font-size: 14px;
+    margin: 20px;
+}
+
+a { color: #0000FF; text-decoration: underline; }
+a:visited { color: #800080; }
+
+.main-table {
+    width: 640px;
+    background: #FFFFFF;
+    border: 2px inset #FFFFFF;
+    box-shadow: 2px 2px 0px #000000;
+}
+
+.section-title {
+    background: #000080;
+    color: #FFFFFF;
+    padding: 2px 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* 日历容器：整体居中 */
+.calendar-container {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    background: #EEEEEE;
+    padding: 10px;
+    border: 1px solid #808080;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 核心：让子元素水平居中 */
+}
+
+/* 标题样式 */
+#cal-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 3px;
+}
+
+/* 日期矩阵：保持等宽对齐 */
+.cal-grid {
+    white-space: pre;
+    line-height: 1.6;
+}
+
+/* 今日高亮：黑底白字 */
+.today-highlight {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.post-title { font-size: 16px; font-weight: bold; margin-top: 10px; }
+.post-meta { font-size: 11px; color: #666666; }
+</style>
+</head>
+
+<body>
+
+<center>
+
+<table class="main-table" cellpadding="10" cellspacing="0">
+
+<tr>
+<td align="center">
+    <font size="6"><b>ZEASON947 个人主页</b></font><br>
+    <font size="2">
+    技术研究记录 · 网络日志存档<br>
+    Last Modified: {{ site.time | date: "%Y-%m-%d" }}
+    </font>
+</td>
+</tr>
+
+<tr>
+<td>
+    <table width="100%" cellpadding="5" cellspacing="0" border="0">
+    <tr>
+    <td width="55%" valign="top">
+        <div class="section-title">系统日历</div>
+        <div class="calendar-container">
+            <div id="cal-header"></div>
+            <div id="cal-grid" class="cal-grid"></div>
+        </div>
+    </td>
+
+    <td width="45%" valign="top">
+        <div class="section-title">关于本站</div>
+        <font size="2">
+        本站用于记录个人技术实验、系统研究与随笔笔记。<br>
+        页面结构严格遵循 HTML 3.2 规范构建。<br>
+        建议使用 800x600 或更高分辨率访问。
+        </font>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+
+<tr>
+<td>
+    <hr size="1" color="#000000">
+    <div class="section-title">最新更新 (Latest Posts)</div>
+    
+    {% for post in site.posts %}
+    <div>
+        <div class="post-title">
+            ● <a href="{{ post.url }}">{{ post.title }}</a>
+        </div>
+        <div class="post-meta">
+            DATE: {{ post.date | date: "%Y/%m/%d" }}
+        </div>
+        <p><font size="2">{{ post.excerpt | strip_html | truncate: 120 }}</font></p>
+    </div>
+    <hr size="1" color="#CCCCCC" noshade>
+    {% endfor %}
+</td>
+</tr>
+
+<tr>
+<td align="center">
+    <font size="2">
+    (C) 1999-2026 Zeason947<br>
+    Best viewed with <b>Netscape Navigator 3.0</b><br>
+    <img src="https://web.archive.org/web/20050206100511im_/http://www.anybrowser.org/campaign/bvgraphics/anybrowser3.gif" border="0" vspace="8">
+    </font>
+</td>
+</tr>
+
+</table>
+
+</center>
+
+<script type="text/javascript">
+function buildCalendar() {
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var today = now.getDate();
+    
+    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var daysHeader = "Su Mo Tu We Th Fr Sa";
+    
+    var firstDay = new Date(year, month, 1).getDay();
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+    
+    // 设置标题
+    document.getElementById('cal-header').innerHTML = year + " " + monthNames[month];
+    
+    var container = document.getElementById('cal-grid');
+    container.innerHTML = ""; // 清空加载文字内容
+
+    // 1. 添加星期头
+    var headerDiv = document.createElement("div");
+    headerDiv.textContent = daysHeader;
+    container.appendChild(headerDiv);
+
+    // 2. 添加分割线
+    var hrDiv = document.createElement("div");
+    hrDiv.textContent = "--------------------";
+    container.appendChild(hrDiv);
+
+    // 3. 构建日期矩阵
+    var lineDiv = document.createElement("div");
+    var col = 0;
+
+    // 填充起始空格
+    for (var i = 0; i < firstDay; i++) {
+        lineDiv.appendChild(document.createTextNode("   "));
+        col++;
+    }
+    
+    for (var d = 1; d <= daysInMonth; d++) {
+        var daySpan = document.createElement("span");
+        var dayText = d < 10 ? " " + d : d;
+        
+        daySpan.textContent = dayText;
+        
+        // 如果是今天，应用黑底白字样式
+        if (d === today) {
+            daySpan.className = "today-highlight";
+        }
+        
+        lineDiv.appendChild(daySpan);
+        lineDiv.appendChild(document.createTextNode(" ")); // 间隔空格
+        
+        col++;
+        if (col % 7 === 0) {
+            container.appendChild(lineDiv);
+            lineDiv = document.createElement("div");
+        }
+    }
+    
+    // 添加最后一行
+    if (col % 7 !== 0) {
+        container.appendChild(lineDiv);
+    }
+}
+buildCalendar();
+</script>
+
+</body>
+</html>
